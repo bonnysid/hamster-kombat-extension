@@ -127,6 +127,10 @@
 
           const jsonData = await res.json();
 
+          if (!res.ok) {
+            throw new Error(jsonData)
+          }
+
           userInfo = jsonData.clickerUser
           const dataEl = document.querySelector('#userInfo');
           const upgrades = [...jsonData.upgradesForBuy];
