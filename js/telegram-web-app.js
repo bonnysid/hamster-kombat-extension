@@ -88,7 +88,10 @@
 
     const buyCard = async (info, signal) => {
       try {
-        if (info && (userInfo.balanceCoins - info.price > minBalance) && !info.cooldownSeconds) {
+        const timeEl = document.querySelector('#cooldownValue');
+        const time = Number(timeEl.textContent.split(' ')[0]);
+
+        if (info && (userInfo.balanceCoins - info.price > minBalance) && !time) {
           const res = await fetch('https://api.hamsterkombat.io/clicker/buy-upgrade', {
             method: 'POST',
             signal: signal,
