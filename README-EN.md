@@ -8,7 +8,7 @@
 - Install [node.js](https://nodejs.org/en)
 - Clone the repository or download it
 - Open and run in terminal `npm install`
-- Start with `node index.js`
+- Start with `node index.js` or `npm run start`
 - Install the [Resource Override](https://chromewebstore.google.com/detail/resource-override/pkoacgokdfckfpndoffpifphamojphii) extension in your browser
 - Open the extension settings and enter the following data:
 - Tab URL: `*` From: `https://hamsterkombat.io/js/telegram-web-app.js` To: `http://localhost:5000/js/telegram-web-app.js`
