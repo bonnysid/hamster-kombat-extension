@@ -14,6 +14,8 @@
 - Tab URL: `*` From: `https://hamsterkombat.io/js/telegram-web-app.js` To: `http://localhost:5000/js/telegram-web-app.js`
 - ![Extension settings](settings.png)
 - [Open the bot](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dhamster_kombat_bot%26appname%3Dstart%26startapp%3DkentId563525859) and start the game
+- The Buy button buys the most profitable card
+- Auto-buy button autostatically buys profitable cards until you have less than 1 000 000 in your account.
 
 ### Open [Hamster Kombat Bot](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dhamster_kombat_bot%26appname%3Dstart%26startapp%3DkentId563525859) and start the game
 
