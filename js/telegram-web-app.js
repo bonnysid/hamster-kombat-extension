@@ -71,7 +71,7 @@
       const el = document.querySelector('#cooldownValue');
 
       if (cooldown) {
-        let currentCooldown = cooldown;
+        let currentCooldown = cooldown || 0;
         if (el) {
           el.textContent = currentCooldown + ' сек';
           let interval = setInterval(() => {
@@ -88,7 +88,7 @@
 
     const buyCard = async (info, signal) => {
       try {
-        if (autoTopMiner && (userInfo.balanceCoins - info.price > minBalance)) {
+        if (info && (userInfo.balanceCoins - info.price > minBalance) && !info.cooldownSeconds) {
           const res = await fetch('https://api.hamsterkombat.io/clicker/buy-upgrade', {
             method: 'POST',
             signal: signal,
@@ -242,12 +242,27 @@
         let signal;
 
         if (enabledAutoBuy) {
-          let hasRequest = false;
           enabledAutoBuy = false;
           applyStyles(autobtn, {
             backgroundColor: '#494fff',
           });
           autobtn.textContent = 'Auto-buy';
+
+          if (interval) {
+            clearInterval(interval);
+          }
+
+          if (signal) {
+            signal.abort();
+          }
+
+        } else {
+          let hasRequest = false;
+          enabledAutoBuy = true;
+          applyStyles(autobtn, {
+            backgroundColor: '#34383f',
+          });
+          autobtn.textContent = 'Stop';
 
           interval = setInterval(() => {
             if (!hasRequest) {
@@ -259,20 +274,6 @@
               });
             }
           }, 50);
-        } else {
-          enabledAutoBuy = true;
-          applyStyles(autobtn, {
-            backgroundColor: '#34383f',
-          });
-          autobtn.textContent = 'Stop';
-
-          if (interval) {
-            clearInterval(interval);
-          }
-
-          if (signal) {
-            signal.abort();
-          }
         }
       })
 
