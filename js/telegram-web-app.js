@@ -1,10 +1,11 @@
 (function() {
+
     const originalFetch = fetch;
     let topMiner;
     let autoTopMiner;
     let miners;
     let userInfo;
-    let minBalance = 1000000;
+    let minBalance = 0;
     let enabledAutoBuy = false;
     let hidden = false;
     let afterBuyPerHour = 0;
