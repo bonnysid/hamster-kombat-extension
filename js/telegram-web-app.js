@@ -135,14 +135,14 @@
     }
 
     const fetchUserInfo = async () => {
-      const res = await fetch('https://api.hamsterkombat.io/clicker/sync', {
+      const res = await fetch('https://api.hamsterkombatgame.io/clicker/sync', {
         method: 'POST',
         headers: {
           'Accept-Encoding': 'gzip, deflate, br, zstd',
           'Accept-Language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7',
           'Connection': 'keep-alive',
           'Content-Length': 54,
-          'Host': 'api.hamsterkombat.io',
+          'Host': 'api.hamsterkombatgame.io',
           'Origin': 'https://hamsterkombat.io',
           'Referer': 'https://hamsterkombat.io/',
           'Sec-Fetch-Dest': 'empty',
@@ -191,7 +191,7 @@
         const time = Number(timeEl.textContent.split(' ')[0]);
 
         if (info && userInfo && (userInfo.balanceCoins - info.price > minBalance) && !time) {
-          const res = await fetch('https://api.hamsterkombat.io/clicker/buy-upgrade', {
+          const res = await fetch('https://api.hamsterkombatgame.io/clicker/buy-upgrade', {
             method: 'POST',
             signal: signal,
             headers: {
@@ -199,7 +199,7 @@
               'Accept-Language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7',
               'Connection': 'keep-alive',
               'Content-Length': 54,
-              'Host': 'api.hamsterkombat.io',
+              'Host': 'api.hamsterkombatgame.io',
               'Origin': 'https://hamsterkombat.io',
               'Referer': 'https://hamsterkombat.io/',
               'Sec-Fetch-Dest': 'empty',
@@ -446,14 +446,14 @@
 
       btn.addEventListener('click', () => {
         if (topMiner) {
-          fetch('https://api.hamsterkombat.io/clicker/buy-upgrade', {
+          fetch('https://api.hamsterkombatgame.io/clicker/buy-upgrade', {
             method: 'POST',
             headers: {
               'Accept-Encoding': 'gzip, deflate, br, zstd',
               'Accept-Language': 'ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7',
               'Connection': 'keep-alive',
               'Content-Length': 54,
-              'Host': 'api.hamsterkombat.io',
+              'Host': 'api.hamsterkombatgame.io',
               'Origin': 'https://hamsterkombat.io',
               'Referer': 'https://hamsterkombat.io/',
               'Sec-Fetch-Dest': 'empty',
@@ -545,7 +545,7 @@
       if (response.url.includes('upgrades-for-buy') || response.url.includes('buy-upgrade')) {
         const container = document.querySelector('#topInfo');
         const newArgs = [...args];
-        newArgs[0] = 'https://api.hamsterkombat.io/clicker/upgrades-for-buy';
+        newArgs[0] = 'https://api.hamsterkombatgame.io/clicker/upgrades-for-buy';
         const copy = originalFetch(...newArgs);
         copy.then(res => res.json()).then(data => {
           const upgrades = [...data.upgradesForBuy];
@@ -582,6 +582,8 @@
             elemInfo.id = 'elemInfo';
             container?.prepend(elemInfo);
           }
+
+          console.log(topMiner)
 
           elemInfo.innerHTML = cardInfo(topMiner);
           startCooldown(topMiner.cooldownSeconds);
