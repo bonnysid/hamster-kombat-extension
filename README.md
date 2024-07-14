@@ -14,6 +14,7 @@
 - Tab URL: `*` From: `https://hamsterkombat.io/js/telegram-web-app.js` To: `http://localhost:5000/js/telegram-web-app.js`
 - Tab URL: `*` From: `https://app.hamsterkombat.io/js/telegram-web-app.js` To: `http://localhost:5000/js/telegram-web-app.js`
 - Tab URL: `*` From: `https://hamsterkombat.io/js/telegram-web-app.js?v=7.6` To: `http://localhost:5000/js/telegram-web-app.js`
+- Tab URL: `*` From: `https://hamsterkombatgame.io/js/telegram-web-app.js?v=7.6` To: `http://localhost:5000/js/telegram-web-app.js`
 - ![Настройки расширения](settings.png)
 - [Открыть бота](https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dhamster_kombat_bot%26appname%3Dstart%26startapp%3DkentId563525859) и запустить игру
 - Кнопка Buy покупает самую выгодную карточку
